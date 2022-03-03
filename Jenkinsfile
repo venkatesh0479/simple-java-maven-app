@@ -4,7 +4,7 @@ pipeline {
             stage('SCM checkout')
             {
             steps{
-                git 'https://github.com/venkatesh0479/simple-java-maven-app.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'e8471536-0a33-454d-8d3d-5ac91298cb7d', url: 'https://github.com/venkatesh0479/simple-java-maven-app.git']]])
             }
         }
             stage('Build') 
